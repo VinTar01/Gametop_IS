@@ -2,7 +2,7 @@ package gestioneAcquisti;
 
 public class OrdiniBean
 {
-    //rappresenta il carello?
+    //rappresenta un singolo prodotto di un ordine?
     private String idemail;
     private String codiceProdotto;
     
