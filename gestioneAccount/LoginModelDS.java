@@ -121,81 +121,8 @@ public class LoginModelDS
         }
         return bean;
     }
-    
-    //controlla se le credenziali di un UtenteBean sono nella tabella Cliente del db e quindi esiste un account per questo utente
-    public boolean validate(final UtenteBean item) throws ClassNotFoundException, SQLException {
-        boolean status = false;
-        Connection connection = null;
-        PreparedStatement preparedStatement = null;
-        final String selectSQL = "SELECT  *  FROM cliente WHERE email= ? and password = ? ";
-        try {
-            connection = this.ds.getConnection();
-            preparedStatement = connection.prepareStatement(selectSQL);
-            preparedStatement.setString(1, item.getEmail());
-            preparedStatement.setString(2, item.getPassword());
-            System.out.println(preparedStatement);
-            final ResultSet rs = preparedStatement.executeQuery();
-            status = rs.next();
-        }
-        catch (SQLException e) {
-            this.printSQLException(e);
-        }
-        return status;
-    }
-    
-    //restituisce un UtenteBean che ha email e password passate come parametro
-    public UtenteBean validazione(final String email, final String password) throws SQLException {
-        Connection connection = null;
-        PreparedStatement preparedStatement = null;
-        final UtenteBean bean = new UtenteBean();
-        final String selectSQL = "SELECT * FROM Cliente WHERE email = ? and password = ?";
-        try {
-            connection = this.ds.getConnection();
-            preparedStatement = connection.prepareStatement(selectSQL);
-            preparedStatement.setString(1, email);
-            preparedStatement.setString(2, password);
-            Utility.print(new String[] { "doRetrieveByKey: " + preparedStatement.toString() });
-            final ResultSet rs = preparedStatement.executeQuery();
-            while (rs.next()) {
-                bean.setNome(rs.getString("nome"));
-                bean.setCognome(rs.getString("cognome"));
-                bean.setEmail(rs.getString("email"));
-                bean.setIndirizzo(rs.getString("indirizzo"));
-                bean.setPassword(rs.getString("password"));
-            }
-            Utility.print(new String[] { bean.toString() });
-        }
-        finally {
-            try {
-                if (preparedStatement != null) {
-                    preparedStatement.close();
-                }
-            }
-            finally {
-                if (connection != null) {
-                    connection.close();
-                }
-            }
-            if (connection != null) {
-                connection.close();
-            }
-        }
-        try {
-            if (preparedStatement != null) {
-                preparedStatement.close();
-            }
-        }
-        finally {
-            if (connection != null) {
-                connection.close();
-            }
-        }
-        if (connection != null) {
-            connection.close();
-        }
-        return bean;
-    }
-    
+
     private void printSQLException(final SQLException e) {
     }
+    
 }
