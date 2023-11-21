@@ -15,6 +15,7 @@ public class OrdineModelDS
         this.ds = ds;
     }
     
+    //per fare una insert quando un ordine viene pagato
     public void SalvaOrdine(final OrdineBean o) throws SQLException {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
