@@ -63,7 +63,7 @@ public class CarrelloFineControl extends HttpServlet {
                   while(var17.hasNext()) {
                      ShopBean prod = (ShopBean)var17.next();
                      addCart.setIdemail(email);
-                     addCart.setCodiceVestito(prod.getCodiceVestito());
+                     addCart.setCodiceProdotto(prod.getCodiceProdotto());
                      model2.doSave2(addCart);
                   }
 
@@ -94,7 +94,7 @@ public class CarrelloFineControl extends HttpServlet {
                   String prodotti = "";
 
                   ShopBean prod;
-                  for(Iterator var26 = prodcart.iterator(); var26.hasNext(); prodotti = prodotti + prod.getCodiceVestito()) {
+                  for(Iterator var26 = prodcart.iterator(); var26.hasNext(); prodotti = prodotti + prod.getCodiceProdotto()) {
                      prod = (ShopBean)var26.next();
                   }
 
@@ -137,7 +137,7 @@ public class CarrelloFineControl extends HttpServlet {
                   id = request.getParameter("id");
                   bean = model.doRetrieveByKey(id);
                   session.setAttribute("id", id);
-                  int c3 = bean.getQuantitaVestito();
+                  int c3 = bean.getQuantitaProdotto();
                   if (bean != null && !bean.isEmpty()) {
                      if (c3 == 0) {
                         System.out.println("finito2");
@@ -153,7 +153,7 @@ public class CarrelloFineControl extends HttpServlet {
                      idVestito = (String)session.getAttribute("id");
                      SessionCarrelloBean addCart = new SessionCarrelloBean();
                      addCart.setIdemail(email);
-                     addCart.setCodiceVestito(idVestito);
+                     addCart.setCodiceProdotto(idVestito);
 
                      try {
                         model2.doSave(addCart);
@@ -173,7 +173,7 @@ public class CarrelloFineControl extends HttpServlet {
                      session.setAttribute("conto", str);
                      SessionCarrelloBean addCart = new SessionCarrelloBean();
                      addCart.setIdemail(email);
-                     addCart.setCodiceVestito(id);
+                     addCart.setCodiceProdotto(id);
 
                      try {
                         model2.doDelete(addCart);

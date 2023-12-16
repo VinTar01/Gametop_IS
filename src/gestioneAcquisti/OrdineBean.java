@@ -213,8 +213,8 @@ public class OrdineBean
         return this.prezzo;
     }
     
-    public void setPrezzo(final String prezzzo) {
-        this.prezzo = prezzzo;
+    public void setPrezzo(final String prezzo) {
+        this.prezzo = prezzo;
     }
     
     public String getProdotti() {
