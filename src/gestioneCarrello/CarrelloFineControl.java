@@ -1,4 +1,4 @@
-package gestioneCarrello;
+    package gestioneCarrello;
 
 import gestioneAcquisti.OrdineBean;
 import gestioneAcquisti.OrdineModelDS;
@@ -50,7 +50,8 @@ public class CarrelloFineControl extends HttpServlet {
 
       try {
          String str;
-         String idVestito;
+         //String str;
+         String idProdotto;
          if (azione != null && azione.equals("pagamentoCart")) {
             request.getSession().setAttribute("pagamento", azione);
             List prodcart = cart.getItems();
@@ -71,14 +72,14 @@ public class CarrelloFineControl extends HttpServlet {
                   int prezzo = (Integer)request.getSession().getAttribute("prezzo");
                   str = (String)session.getAttribute("nomeS");
                   str = (String)session.getAttribute("cognomeS");
-                  idVestito = (String)session.getAttribute("indirizzoS");
+                  idProdotto = (String)session.getAttribute("indirizzoS");
                   String capS = (String)session.getAttribute("capS");
                   String comuneS = (String)session.getAttribute("comuneS");
                   String provinciaS = (String)session.getAttribute("provinciaS");
                   System.out.println(" param " + prezzo);
                   System.out.println(" param " + str);
                   System.out.println(" param " + str);
-                  System.out.println(" param " + idVestito);
+                  System.out.println(" param " + idProdotto);
                   System.out.println(" param " + capS);
                   System.out.println(" param " + comuneS);
                   System.out.println(" param " + provinciaS);
@@ -86,7 +87,7 @@ public class CarrelloFineControl extends HttpServlet {
                   b.setCap(capS);
                   b.setComune(comuneS);
                   b.setCognome(str);
-                  b.setIndirizzo(idVestito);
+                  b.setIndirizzo(idProdotto);
                   b.setPrezzo(String.valueOf(prezzo));
                   b.setProvincia(provinciaS);
                   b.setEmail(email);
@@ -121,7 +122,7 @@ public class CarrelloFineControl extends HttpServlet {
                }
             } else if (action.equals("UpdateCart")) {
                cart.deleteItems();
-               request.setAttribute("message", "Cart cleaned");
+               request.setAttribute("message", "Cart updated");
 
                try {
                   model2.deleteAll(email);
@@ -150,10 +151,10 @@ public class CarrelloFineControl extends HttpServlet {
                      str = String.valueOf(c);
                      session.setAttribute("conto", str);
                      request.setAttribute("message", "Product " + bean.getTitolo() + " added to cart");
-                     idVestito = (String)session.getAttribute("id");
+                     idProdotto = (String)session.getAttribute("id");
                      SessionCarrelloBean addCart = new SessionCarrelloBean();
                      addCart.setIdemail(email);
-                     addCart.setCodiceProdotto(idVestito);
+                     addCart.setCodiceProdotto(idProdotto);
 
                      try {
                         model2.doSave(addCart);
