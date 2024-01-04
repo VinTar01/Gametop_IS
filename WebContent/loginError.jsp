@@ -1,37 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 
-
     <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Account | Gametop </title>
+    <title>Account | Gametop</title>
     <link rel="shortcut icon" type="image/x-icon" href="images/Logo/logo-sito.gif">
     <link rel="stylesheet" href="style.css">
-   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-   
-   
-	<script>
-	function tryLogin(){
-		$.ajax(
-			{
-				method: "POST",
-				url: "LoginControl",
-				data: {
-					username: $("#login-username").val(),
-					password: $("#login-password").val(),
-				},
-				success: (data) => {
-					window.location.replace("http://localhost:8080/GametopFV/index.jsp");
-				},
-				error: (data) => {
-					$("#login-message").html("OPS!!È stato commesso un errore credenziali errate o utente non registrato");
-					$("#login-message").css("color", "red");
-				}	
-			}
-		);
-	}
-	</script>
 	      <meta http-equiv="cache-control" content="max-age=0" />
 	<meta http-equiv="cache-control" content="no-cache" />
 	<meta http-equiv="expires" content="0" />
@@ -44,7 +19,6 @@
 		response.setDateHeader ("Expires", 0);
 
 	%>
-	
 </head>
 
 <body>
@@ -55,34 +29,31 @@
 
 <!-- ------------------------------------ Accesso ----------------------------------------  -->
 
+
     <section class="container-account">
 <div class="login-box">
-	<h2 id="login-message"></h2>
-  	<h2>Login</h2>
-  
-  <form  onsubmit="tryLogin(); return false">
+ <h2>OPS!!È stato commesso un errore</h2>
+     <h2>Email o Password errata</h2>
+  <h2>Login</h2>
+  <form action="<%=request.getContextPath()%>/LoginControl?action=bentornato" method="post">
     <div class="user-box">
-      <input type="text" id="login-username"  required="">
+      <input type="text" name="email" required="">
       <label>Email</label>
     </div>
     <div class="user-box">
-      <input type="password" id="login-password"  required="">
+      <input type="password" name="password" required="">
       <label>Password</label>
-      
     </div>
-    <input class="button" type="submit" id="login-submit" value="Accedi">
-      <!-- <a class="c" href="registrazione2.jsp">hai dimenticato la password? clicca qui</a>   -->  
+    <input class="button" type="submit"  value="Accedi">
                 
-     <a class="button" href="registrazione.jsp"><b>Non sei ancora registrato?Registrati</b></a>
-   
+     <a class="button" href="registrazione.jsp"><b>Non sei ancora registrato?Registrati</b></a>  
   </form>
 </div>
 
     </section>
-
 <!-- ------------------------------------ Footer ----------------------------------------  -->
 
-   <%@ include file ="/footer.jsp" %>
+   <%@ include file ="footer.jsp" %>
 
 </body>
 

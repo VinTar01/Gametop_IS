@@ -25,14 +25,13 @@
 		response.setDateHeader ("Expires", 0);
 
 	%>
-	
-
 
 <title>Insert title here</title>
 </head>
 <body>
+
   <!-- Header -->
-  <header id="home" class="header">
+  <header class="corpo">
     <!-- Navigation -->
     <nav class="nav">
       <div class="navigation container">
@@ -49,14 +48,16 @@
               <i class="bx bx-x"></i>
             </div>
           </div>
-           <% Integer cont=0;
-            if(session.getAttribute("conto")!=null){String c = (String) request.getSession().getAttribute("conto");
+          <% Integer cont=0;
+            if(session.getAttribute("conto")!=null){
+            	String c = (String) request.getSession().getAttribute("conto");
             cont = Integer.valueOf(c);}
             else{
             cont=0;
             } %>
- 			<%String s= (String) session.getAttribute("email");
-		if(session.getAttribute("nome") == null){
+	         <%
+	         String s= (String) session.getAttribute("email");
+	if(session.getAttribute("nome") == null){
 		%> 
              <ul class="nav-list , Opzioni">
             <li class="nav-item">
@@ -73,24 +74,21 @@
             </li>
             <li class="nav-item">
               <a href="login.jsp" class="Opzioni-effect">Login</a>
-            <li class="nav-item">
-              <a href="loginPersonale.jsp" class="Opzioni-effect">Login Personale</a>
             </li>
             <li class="nav-item">
-           
-            <!-- <div class="circle2"><%=cont%></div>-->
+               <!-- <div class="circle2"><%=cont%></div> --> 
               <a href="carrello.jsp" class="nav-link icon"><i class="bx bx-shopping-bag"></i></a>
-              
             </li>
           </ul>
           <%}
- 			else if(session.getAttribute("nome") != null && s.equals("admin@gmail.com")){
+	         
+			else if(session.getAttribute("nome") != null && s.equals("admin@gmail.com")){
 		%>
 		<ul class="nav-list , Opzioni">
             <li class="nav-item">
               <a href="index.jsp" class=" Opzioni-effect">Home</a>
             </li>
-            <li class="nav-item">
+           <li class="nav-item">
               <a href="console.jsp" class="Opzioni-effect">Console</a>
             </li>
             <li class="nav-item">
@@ -100,48 +98,50 @@
               <a href="accessori.jsp" class="Opzioni-effect">Accessori</a>
             </li>
             <li class="nav-item">
-             <a class="Opzioni-effect" href="<%=response.encodeURL("LogoutControl") %>">Logout</a>
-            </li>
+              <a class="Opzioni-effect" href="<%=response.encodeURL("LogoutControl") %>">Logout</a>
             <li class="nav-item">
               <a href="account.jsp" class="Opzioni-effect">Account</a>
             </li>
             <li class="nav-item">
-            <!--<div class="circle2"><%=cont%></div>  --> 
+               <!-- <div class="circle2"><%=cont%></div> --> 
               <a href="carrello.jsp" class="nav-link icon"><i class="bx bx-shopping-bag"></i></a>
             </li>
           </ul>
 		
-		<%}  
- 			else if(session.getAttribute("nome") != null ){
+		<%} else if(session.getAttribute("nome") != null ){
 			%>
 			<ul class="nav-list , Opzioni">
 	            <li class="nav-item">
 	              <a href="index.jsp" class=" Opzioni-effect">Home</a>
 	            </li>
 	            <li class="nav-item">
-	              <a href="console.jsp" class="Opzioni-effect">Console</a>
-	            </li>
+              <a href="console.jsp" class="Opzioni-effect">Console</a>
+            </li>
+            <li class="nav-item">
+              <a href="videogiochi.jsp" class="Opzioni-effect">Videogiochi</a>
+            </li>
+            <li class="nav-item">
+              <a href="accessori.jsp" class="Opzioni-effect">Accessori</a>
+            </li>
 	            <li class="nav-item">
-	              <a href="videogiochi.jsp" class="Opzioni-effect">Videogiochi</a>
+	             <a class="Opzioni-effect" href="<%=response.encodeURL("LogoutControl") %>">Logout</a>
 	            </li>
-	            <li class="nav-item">
-	              <a href="accessori.jsp" class="Opzioni-effect">Accessori</a>
-	            </li>
-	            <li class="nav-item">
-	              <a class="Opzioni-effect" href="<%=response.encodeURL("LogoutControl") %>">Logout</a>
-	            </li>
-	            
+	      
 	            <li class="nav-item">
 	              <a href="account.jsp" class="Opzioni-effect">Account</a>
 	            </li>
 	            <li class="nav-item">
-	            <!-- <div class="circle2"><%=cont%></div> --> 
+	               <!-- <div class="circle2"><%=cont%></div> --> 
 	              <a href="carrello.jsp" class="nav-link icon"><i class="bx bx-shopping-bag"></i></a>
 	            </li>
 	          </ul>
 			
 			<%}%>
         </div>
+       
+		
+		
+	
 
         <a href="carrello.jsp" class="cart-icon">
           <i class="bx bx-shopping-bag"></i>
@@ -152,22 +152,6 @@
         </div>
       </div>
     </nav>
-<% String tmp = (String) request.getSession().getAttribute("nome");%>
-    <!-- Hero -->
-      <img src="image/bannerhome.png" alt="" class="hero-img" /> 
-
-    <div class="hero-content">
-      <h2><span class="discount">5% </span> DI SCONTO</h2>
-      <h1>
-        <span>Nuovi articoli!</span>
-        <span>Ordina subito</span>
-      </h1>
-      <%if(tmp==null){ %>
-            	 <a class="btn" href="registrazione.jsp">Unisciti a noi</a>
-            	 <% } else if(tmp != null){%>
-            	 <a class="btn" href="account.jsp"><b>CIAO  <%=tmp%></b></a>
-            	 <%} %>
-    </div>
   </header>
 <!-- GSAP -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>

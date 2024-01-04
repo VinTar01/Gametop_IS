@@ -6,8 +6,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Account |Gametop</title>
-    <link rel="shortcut icon" type="image/x-icon" href="images/Logo/logo.png">
+<title>Account | Gametop</title>
+    <link rel="shortcut icon" type="image/x-icon" href="images/Logo/logo-sito.gif">
     <link rel="stylesheet" href="style.css">
     
     <meta http-equiv="cache-control" content="max-age=0" />
@@ -65,8 +65,13 @@
 		
 	<%} else{%>
 	 
-	<h2 class ="ute"> <%=tmp%> questo Ã¨ il tuo account</h2>
-	<a class="button" href="cambiaPassword.jsp"><b>Vuoi cambiare la password? Clicca qua</b></a> 
+	<h2 class ="ute"> <%=tmp%> questo è il tuo account</h2>
+	
+	<section class="modifica-dati-personali">
+    	<a class="button" href="cambiaDatiPersonali.jsp"><b>Modifica dati personali</b></a>
+    	<a class="button" href="cambiaPassword.jsp"><b>Vuoi cambiare la password? Clicca qua</b></a> 
+	</section>
+	
 	<%} %>
 	<h2>Qui potrai trovare i prodotti che hai acquistato</h2>
 		
@@ -88,19 +93,19 @@
 				<th class="colonne2">Prezzo totale</th>
 			</tr>	
 			
-        	<tr>
-         		<td> <%=prod.getNumeroOrdine() %> </td>
-				<td> <%=prod.getIndirizzo() %></td>
-				<td></td>
-				<td> <%=prod.getPrezzo() %></td>
-        	</tr>
+        <tr>
+         	<td> <%=prod.getNumeroOrdine() %> </td>
+			<td> <%=prod.getIndirizzo() %></td>
+			<td></td>
+			<td> <%=prod.getPrezzo() %></td>
+        </tr>
        
-       		<tr >
-				<th >Codice Prodotto</th>
-				<th >Nome Prodotto</th>
-				<th >Descrizione</th>
-				<th >Copertina</th>
-			</tr>
+       <tr >
+<th >Codice Prodotto</th>
+<th >Nome Prodotto</th>
+<th >Descrizione</th>
+<th >Copertina</th>
+</tr>
 <%String codiciProdotti=prod.getProdotti();
 DataSource ds = (DataSource)getServletContext().getAttribute("DataSource");
 ShopModelDS model = new ShopModelDS(ds);
@@ -114,7 +119,7 @@ ShopBean p =model.doRetrieveByKey(codice);
 <th class="colonne"></th>
 <th class="colonne"></th>
 </tr>
-<td> <%=p.getCodiceVestito() %></td>
+<td> <%=p.getCodiceProdotto() %></td>
 <td> <%=p.getTitolo() %> </td>
 <td> <%=p.getDescrizione() %> </td>
 <td><img src="<%= p.getCopertina()%>" onerror="this.src='./image/noimage.png'" width=75px> </td>

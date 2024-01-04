@@ -44,10 +44,10 @@ th, td {
     margin-bottom: 10px;
 }
 
-/* ------------------------------------ Pagina Uomo ------------------------------------ */
+/* ------------------------------------ Pagina Console ------------------------------------ */
 
-.banner-uomo{  
-    background-image: url(image/banner-uomo.jpg);
+.banner-console{  
+    background-image: url(image/banner-console.jpg);
     text-align: center;
     background-size: cover;
     padding-top: 135px;
@@ -57,22 +57,10 @@ th, td {
 
 /* ------------------------------------ Pagina Donna ------------------------------------ */
 
-.banner-donna{  
-    background-image: url(image/banner-donna.jpg);
+.banner-videogiochi{  
+    background-image: url(image/banner-videogiochi.jpg);
     text-align: center;
     background-size: cover;
-    background-position: center;
-    padding-top: 135px;
-    padding-bottom: 115px;
-    width: 100%; 
-}
-
-/* ------------------------------------ Pagina Bambino ------------------------------------ */
-
-.banner-bambino{  
-    background-image: url(image/banner-bambini.jpg);
-    text-align: center;
-    background-size:cover;
     background-position: center;
     padding-top: 135px;
     padding-bottom: 115px;
@@ -91,7 +79,9 @@ th, td {
     width: 100%; 
 }
 
-/* ------------------ NavBar ------------------ */
+
+
+/* ------------------ NavBar ------------------*/ 
 
 header{
     height: 80px;
@@ -171,7 +161,8 @@ header{
 
 ::placeholder{
     text-align: center;
-}
+} 
+
 
 /* ------------------ Categorie ------------------ */
 
@@ -426,7 +417,7 @@ header{
     text-align: center;
 } 
 
-/* ------------------ Vetrina ------------------ */
+/* ------------------ Vetrina ------------------*/
 
 
 

@@ -7,7 +7,7 @@
  	<link href="style.css" rel="stylesheet" type="text/css">
  	<meta name="viewport" content="width=device-width, initial-scale=1"/>
  	<link rel="shortcut icon" type="image/x-icon" href="image/Logo/logo-sito.gif">
-    <title>Homepage | DressMe Cloth collection</title>
+    <title>Homepage | Gametop HomePage</title>
     
     <meta http-equiv="cache-control" content="max-age=0" />
 	<meta http-equiv="cache-control" content="no-cache" />
@@ -38,18 +38,18 @@
     <div class="categories-row">
 
         <div class="categories-item">
-            <img src="image/sfondo-uo.jpg" alt="uomo">
-            <a class="button" href="uomo.jsp"><b>COMPRA</b><br><b>UOMO</b></a>
+            <img src="image/sfondo-co.jpg" alt="console">
+            <a class="button" href="console.jsp"><b>COMPRA</b><br><b>CONSOLE</b></a>
         </div>
     
         <div class="categories-item">
-            <img src="image/sfondo-do.jpg"  alt="donna">
-            <a class="button" href="donna.jsp"><b>COMPRA</b><br><b>DONNA</b></a>
+            <img src="image/sfondo-vd.jpg"  alt="videogiochi">
+            <a class="button" href="videogiochi.jsp"><b>COMPRA</b><br><b>VIDEOGIOCHI</b></a>
         </div>
     
         <div class="categories-item">
-            <img src="image/sfondo-ba.jpg"  alt="bambino">
-            <a class="button" href="bambini.jsp"><b>COMPRA</b><br><b>BAMBINO</b></a>
+            <img src="image/sfondo-ac.jpg"  alt="accessori">
+            <a class="button" href="accessori.jsp"><b>COMPRA</b><br><b>ACCESSORI</b></a>
         </div>
 
     </div>
@@ -89,8 +89,8 @@
         <div class="newsletter-row">
 
             <div class="newsletter-item">
-                <h1>RICEVI IL 10% DI SCONTO SUL TUO PRIMO ORDINE!</h1>
-                <h3>INSERISCI LA TUA E-MAIL PER RIMANERE AGGIORNATO SU TUTTE LE NOSTRE NOVITÃ€ E PROMOZIONI</h3>
+                <h1>REGISTRATI SUBITO</h1>
+                <h3>INSERISCI LA TUA E-MAIL PER RIMANERE AGGIORNATO SU TUTTE LE NOSTRE NOVITÀ E PROMOZIONI</h3>
             </div>
 
             <div class="newsletter-form">
