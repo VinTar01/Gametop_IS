@@ -1,4 +1,4 @@
-package gestioneProdotti;
+    package gestioneProdotti;
 
 import it.unisa.utils.Utility;
 import java.io.IOException;
@@ -19,7 +19,7 @@ public class VideogiochiControl extends HttpServlet {
       ShopModelDS model = new ShopModelDS(ds);
 
       try {
-         request.setAttribute("Videogiochi", model.doRetrieveAllConsole(""));
+         request.setAttribute("Videogiochi", model.doRetrieveAllVideogiochi(""));
       } catch (SQLException var6) {
          Utility.print(var6);
          request.setAttribute("error", var6.getMessage());

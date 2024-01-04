@@ -1,4 +1,4 @@
-package gestioneProdotti;
+    package gestioneProdotti;
 
 import it.unisa.utils.Utility;
 import java.io.IOException;
@@ -16,33 +16,25 @@ public class GestoreProdottiControl extends HttpServlet {
 
    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
       DataSource ds = (DataSource)this.getServletContext().getAttribute("DataSource");
-      //crea uno ShopModelDS
       ShopModelDS model = new ShopModelDS(ds);
-      //ottengo dalla request i parametri sort e action
       String sort = request.getParameter("sort");
       String action = request.getParameter("action");
 
       try {
          if (action != null) {
             String codiceProdotto;
-            //se action è detail voglio vedere i dettagli di un prodotto
             if (action.equals("details")) {
-                //ottengo dalla request id del prodotto
-               codiceProdotto = request.getParameter("id");
+            codiceProdotto = request.getParameter("id");
                request.removeAttribute("product");
                request.setAttribute("product", model.doRetrieveByKey(codiceProdotto));
             } else if (action.equals("delete")) {
-                //ottengo id del prodotto da eliminare
                codiceProdotto = request.getParameter("id");
-               //lo ricavo dal db
                ShopBean bean = model.doRetrieveByKey(codiceProdotto);
                if (bean != null && !bean.isEmpty()) {
-                //lo cancello dal db 
                   model.doDelete(bean);
                   request.setAttribute("message", "Product " + bean.getTitolo() + " deleted");
                }
-            } 
-            else {
+            } else {
                String titolo;
                String descrizione;
                String copertina;
@@ -51,7 +43,7 @@ public class GestoreProdottiControl extends HttpServlet {
                ShopBean bean;
                String idCategoria;
                if (action.equals("update")) {
-                  codiceProdotto = request.getParameter("id");
+            	  codiceProdotto = request.getParameter("id");
                   idCategoria = request.getParameter("idcategoria");
                   titolo = request.getParameter("titolo");
                   descrizione = request.getParameter("descrizione");
@@ -69,7 +61,7 @@ public class GestoreProdottiControl extends HttpServlet {
                   model.doUpdate(bean);
                   request.setAttribute("message", "Product " + bean.getTitolo() + " updated");
                } else if (action.equals("insert")) {
-                  codiceProdotto = request.getParameter("codiceProdotto");
+            	   codiceProdotto = request.getParameter("codiceProdotto");
                   idCategoria = request.getParameter("idcategoria");
                   titolo = request.getParameter("titolo");
                   descrizione = request.getParameter("descrizione");

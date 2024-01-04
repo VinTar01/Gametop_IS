@@ -1,18 +1,16 @@
-package gestioneProdotti;
+    package gestioneProdotti;
 
-import java.util.Collection;
 import java.sql.SQLException;
+import java.util.Collection;
 
-//interfaccia che definisce le operazioni sulle tabelle
-public interface ShopModel<T>
-{
-    T doRetrieveByKey(final String p0) throws SQLException;
-    
-    Collection<T> doRetrieveAll(final String p0) throws SQLException;
-    
-    void doSave(final T p0) throws SQLException;
-    
-    boolean doUpdate(final T p0) throws SQLException;
-    
-    boolean doDelete(final T p0) throws SQLException;
+public interface ShopModel<T> {
+   T doRetrieveByKey(String var1) throws SQLException;
+
+   Collection<T> doRetrieveAll(String var1) throws SQLException;
+
+   void doSave(T var1) throws SQLException;
+
+   boolean doUpdate(T var1) throws SQLException;
+
+   boolean doDelete(T var1) throws SQLException;
 }
