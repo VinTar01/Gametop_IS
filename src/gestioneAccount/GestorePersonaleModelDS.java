@@ -1,5 +1,6 @@
 package gestioneAccount;
 
+
 import java.sql.SQLException;
 import java.sql.ResultSet;
 import java.sql.PreparedStatement;
@@ -9,11 +10,11 @@ import java.util.LinkedList;
 import java.util.Collection;
 import javax.sql.DataSource;
 
-public class GestoreRuoliModelDS
+public class GestorePersonaleModelDS
 {
     private DataSource ds;
     
-    public GestoreRuoliModelDS(final DataSource ds) {
+    public GestorePersonaleModelDS(final DataSource ds) {
         this.ds = null;
         this.ds = ds;
     }
@@ -259,4 +260,4 @@ public class GestoreRuoliModelDS
         }
         return false;
     }
-}
+}  

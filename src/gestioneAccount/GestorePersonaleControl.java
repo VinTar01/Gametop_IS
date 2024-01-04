@@ -19,14 +19,14 @@ import javax.sql.DataSource;
 import it.unisa.utils.PasswordHasher;
 import it.unisa.utils.Utility;
 
-@WebServlet("/AdminDirettore")
-public class GestoreRuoliControl  extends HttpServlet {
+@WebServlet({"/AdminDirettore"})
+public class GestorePersonaleControl  extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		DataSource ds = (DataSource)getServletContext().getAttribute("DataSource");
-		GestoreRuoliModelDS mD = new GestoreRuoliModelDS(ds);	
+		GestorePersonaleModelDS mD = new GestorePersonaleModelDS(ds);	
 		
 		String action = request.getParameter("action");	
 		
